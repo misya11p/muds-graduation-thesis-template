@@ -105,6 +105,15 @@ Please add the following to Visual-Studio-Code's `settings.json`
 ```
 
 
+### Clone this repository
+
+```shell
+$ git clone https://github.com/Rintaro-Fukui/Graduation-Thesis.git
+$ cd ./Graduation-Thesis
+$ code ./
+```
+
+
 ## Usage
 
 After editing `graduation_thesis.tex`, you can compile it by clicking the Run button in the upper right corner.
@@ -112,6 +121,6 @@ After editing `graduation_thesis.tex`, you can compile it by clicking the Run bu
 Please refer to the many excellent articles on basic notation.
 
 
-## Precautions
+## Cautions
 
 The templates provided in this repository are personal creations and we are not responsible for any problems that may arise as a result of using these templates.
