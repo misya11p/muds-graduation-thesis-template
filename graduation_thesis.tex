@@ -6,18 +6,22 @@
 \usepackage{titlesec}
 \usepackage{lmodern}
 \usepackage{tocloft}
+\usepackage{fontspec}
 \usepackage[hidelinks]{hyperref}
 \usepackage[no-math,deluxe,expert,ipa]{luatexja-preset}
+
+\renewcommand{\cfttoctitlefont}{\Large}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\setcounter{tocdepth}{3}
+\cftsetindents{section}{0em}{4em}
+\cftsetindents{subsection}{1em}{4em}
+\cftsetindents{subsubsection}{2em}{4em}
 
 \pretocmd{\section}{\clearpage}{}{}
 \titleformat{\section}{\normalfont\Large}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\normalfont}{\thesubsubsection}{1em}{}
-
-\setcounter{tocdepth}{3}
-\cftsetindents{section}{0em}{3em}
-\cftsetindents{subsection}{1em}{3em}
-\cftsetindents{subsubsection}{2em}{3em}
 
 \title{卒業論文 \vskip\baselineskip タイトルタイトルタイトル}
 \author{武蔵野太郎\\ データサイエンス学科\\ 武蔵野大学}
@@ -41,7 +45,7 @@
 このファイルは，武蔵野大学データサイエンス学部データサイエンス学科の卒論のテンプレートです．...
 
 \subsection{論文の構成}\label{subsec:structure}
-論文の構成を以下に述べる．2章では...
+論文の構成を以下に述べる．第\ref{sec:figures_tables_equations}章では，図表と数式の配置について述べる．第\ref{sec:hierarchy_style}章では，見出しの階層構造とスタイルの設定について述べる．第\ref{sec:conclusion}章では，結論を述べる．
 
 % section 2: Figures, Tables, and Equations
 \section{図と表と数式}\label{sec:figures_tables_equations}
@@ -52,6 +56,8 @@
 図と表にはキャプションを付けます．キャプションというのは...
 
 \subsubsection{図とそのキャプションの例}\label{subsubsec:figure}
+図\ref{fig:vector_space}に人間の知識創造のベクトル空間モデルにおける表現を示す．
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image-a}
@@ -60,7 +66,10 @@
 \end{figure}
 
 \subsubsection{表とそのキャプションの例}\label{subsubsec:table}
+表\ref{tab:ml_properties}に各機械学習(ML)の性質を示す．
+
 \begin{table}[htbp]
+    \caption{各MLの性質}
     \centering
     \begin{tabular}{|c|c|c|c|}
         \hline
@@ -69,21 +78,23 @@
         カラーイメージスケール & 180 & 130 & 印象保存 \\ \hline
         音相理論 & 78 & 20 & 印象保存 \\ \hline
     \end{tabular}
-    \caption{各MLの性質}
     \label{tab:ml_properties}
 \end{table}
 
 \subsection{数式の参照番号}
+式(\ref{eq:feature})に特徴ベクトルを示す．
+
 \begin{equation}\label{eq:feature}
     S_1 = f(s_i) \quad 1 \leq i \leq n
 \end{equation}
-...
+
+ここで，$S_1$は特徴ベクトル，$f$は特徴関数，$s_i$は特徴の$i$番目の要素を表す．
 
 % section 3: Hierarchy of Headings and Style
 \section{見出しの階層構造とスタイルの設定}\label{sec:hierarchy_style}
-\subsection{見出しのレベル}\label{subsec:level}
-\subsubsection{これはレベル3です}\label{subsubsec:level3}
-...
+\subsection{見出しレベル2}\label{subsec:level2}
+\subsubsection{見出しレベル3}\label{subsubsec:level3}
+
 
 % section 4: Conclusion
 \section{結論}\label{sec:conclusion}
@@ -94,6 +105,22 @@
 本研究の遂行にあたって，...
 
 % References
+\bibliographystyle{plain}
 \bibliography{references}
+
+% Appendix
+\appendix
+\section{付録について}\label{app:appendix}
+\texttt{\textbackslash{}appendix}以降の章は付録として扱われる．
+
+\section{参照について}\label{app:ref}
+\texttt{\textbackslash{}label\{ラベル名\}}で任意の章や節にラベルをつけ，\texttt{\textbackslash{}ref\{ラベル名\}}で参照すると，自動で章番号や節番号が挿入される．
+
+\section{BibTeXについて}\label{app:bibtex}
+文献の管理にはBibTeXを使うと良い．任意のBibTeXファイル（`ファイル名.bib`）に文献情報を書き，\texttt{\textbackslash{}cite\{キー\}}で文献を引用する．次に例を示す:
+
+AIME\cite{AIME}は機械学習モデルを解釈するための新しい手法である．
+
+参考文献を表示させる位置に\texttt{\textbackslash{}bibliography\{ファイル名\}}を書くことで，参考文献リストが自動で生成される．本テンプレートにおけるサンプルのBibTeXファイルは\texttt{references.bib}である．
 
 \end{document}
