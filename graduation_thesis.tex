@@ -1,25 +1,28 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[titlepage,12pt]{ltjsarticle}
 
-% Package declarations
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{hyperref}
-\usepackage{geometry}
-\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage[no-math,deluxe,expert,ipa]{luatexja-preset}
 
-\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+\pretocmd{\section}{\clearpage}{}{}
+\titleformat{\section}{\normalfont\Large}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{}
 
-% Customization for headers and footers
-\pagestyle{fancy}
-\fancyhead[L]{}
-\fancyhead[C]{}
-\fancyhead[R]{\thepage}
-\fancyfoot[L]{}
-\fancyfoot[C]{}
-\fancyfoot[R]{}
+% 付録ない場合は消していい =================================================
+\usepackage{tocloft}
+\usepackage{fontspec}
+\renewcommand{\cfttoctitlefont}{\rmfamily\Large}
+\renewcommand{\cftsecfont}{\rmfamily\normalfont}
+\renewcommand{\cftsecpagefont}{\rmfamily\normalfont}
+\cftsetindents{section}{0em}{4em}
+\cftsetindents{subsection}{1em}{3em}
+% ======================================================================
 
-\title{卒業論文\\ タイトルタイトルタイトル}
+\title{卒業論文 \vskip\baselineskip タイトルタイトルタイトル}
 \author{武蔵野太郎\\ データサイエンス学科\\ 武蔵野大学}
 \date{2025年1月}
 
