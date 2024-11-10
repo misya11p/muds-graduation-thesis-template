@@ -37,28 +37,29 @@
 \tableofcontents
 
 % section 1: Introduction
-\section{序論}
+\section{序論}\label{sec:introduction}
 このファイルは，武蔵野大学データサイエンス学部データサイエンス学科の卒論のテンプレートです．...
 
-\subsection{論文の構成}
+\subsection{論文の構成}\label{subsec:structure}
 論文の構成を以下に述べる．2章では...
 
 % section 2: Figures, Tables, and Equations
-\section{図と表と数式}
-\subsection{図表の配置}
+\section{図と表と数式}\label{sec:figures_tables_equations}
+\subsection{図表の配置}\label{subsec:placement}
 図表は本文中に，出現する場所に配置します．
 
-\subsection{図表のキャプション}
+\subsection{図表のキャプション}\label{subsec:caption}
 図と表にはキャプションを付けます．キャプションというのは...
 
-\subsubsection{図とそのキャプションの例}
+\subsubsection{図とそのキャプションの例}\label{subsubsec:figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image-a}
     \caption{人間の知識創造のベクトル空間モデルにおける表現}
+    \label{fig:vector_space}
 \end{figure}
 
-\subsubsection{表とそのキャプションの例}
+\subsubsection{表とそのキャプションの例}\label{subsubsec:table}
 \begin{table}[htbp]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -69,22 +70,23 @@
         音相理論 & 78 & 20 & 印象保存 \\ \hline
     \end{tabular}
     \caption{各MLの性質}
+    \label{tab:ml_properties}
 \end{table}
 
 \subsection{数式の参照番号}
-\begin{equation}
+\begin{equation}\label{eq:feature}
     S_1 = f(s_i) \quad 1 \leq i \leq n
 \end{equation}
 ...
 
 % section 3: Hierarchy of Headings and Style
-\section{見出しの階層構造とスタイルの設定}
-\subsection{見出しのレベル}
-\subsubsection{これはレベル3です}
+\section{見出しの階層構造とスタイルの設定}\label{sec:hierarchy_style}
+\subsection{見出しのレベル}\label{subsec:level}
+\subsubsection{これはレベル3です}\label{subsubsec:level3}
 ...
 
 % section 4: Conclusion
-\section{結論}
+\section{結論}\label{sec:conclusion}
 本論文では，...
 
 % Acknowledgements
