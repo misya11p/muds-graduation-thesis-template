@@ -5,22 +5,19 @@
 \usepackage{amssymb}
 \usepackage{titlesec}
 \usepackage{lmodern}
+\usepackage{tocloft}
 \usepackage[hidelinks]{hyperref}
 \usepackage[no-math,deluxe,expert,ipa]{luatexja-preset}
 
 \pretocmd{\section}{\clearpage}{}{}
 \titleformat{\section}{\normalfont\Large}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont}{\thesubsubsection}{1em}{}
 
-% 付録ない場合は消していい =================================================
-\usepackage{tocloft}
-\usepackage{fontspec}
-\renewcommand{\cfttoctitlefont}{\rmfamily\Large}
-\renewcommand{\cftsecfont}{\rmfamily\normalfont}
-\renewcommand{\cftsecpagefont}{\rmfamily\normalfont}
-\cftsetindents{section}{0em}{4em}
+\setcounter{tocdepth}{3}
+\cftsetindents{section}{0em}{3em}
 \cftsetindents{subsection}{1em}{3em}
-% ======================================================================
+\cftsetindents{subsubsection}{2em}{3em}
 
 \title{卒業論文 \vskip\baselineskip タイトルタイトルタイトル}
 \author{武蔵野太郎\\ データサイエンス学科\\ 武蔵野大学}
@@ -32,35 +29,36 @@
 \maketitle
 
 % Abstract
-\chapter*{要旨}
+\section*{要旨}
 「ダミーテキスト」近年，プロの作家やライターではない，...
 
 % Table of Contents
+\clearpage
 \tableofcontents
 
-% Chapter 1: Introduction
-\chapter{序論}
+% section 1: Introduction
+\section{序論}
 このファイルは，武蔵野大学データサイエンス学部データサイエンス学科の卒論のテンプレートです．...
 
-\section{論文の構成}
+\subsection{論文の構成}
 論文の構成を以下に述べる．2章では...
 
-% Chapter 2: Figures, Tables, and Equations
-\chapter{図と表と数式}
-\section{図表の配置}
+% section 2: Figures, Tables, and Equations
+\section{図と表と数式}
+\subsection{図表の配置}
 図表は本文中に，出現する場所に配置します．
 
-\section{図表のキャプション}
+\subsection{図表のキャプション}
 図と表にはキャプションを付けます．キャプションというのは...
 
-\subsection{図とそのキャプションの例}
+\subsubsection{図とそのキャプションの例}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image-a}
     \caption{人間の知識創造のベクトル空間モデルにおける表現}
 \end{figure}
 
-\subsection{表とそのキャプションの例}
+\subsubsection{表とそのキャプションの例}
 \begin{table}[htbp]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -73,31 +71,27 @@
     \caption{各MLの性質}
 \end{table}
 
-\section{数式の参照番号}
+\subsection{数式の参照番号}
 \begin{equation}
     S_1 = f(s_i) \quad 1 \leq i \leq n
 \end{equation}
 ...
 
-% Chapter 3: Hierarchy of Headings and Style
-\chapter{見出しの階層構造とスタイルの設定}
-\section{見出しのレベル}
-\subsection{これはレベル3です}
+% section 3: Hierarchy of Headings and Style
+\section{見出しの階層構造とスタイルの設定}
+\subsection{見出しのレベル}
+\subsubsection{これはレベル3です}
 ...
 
-% Chapter 4: Conclusion
-\chapter{結論}
+% section 4: Conclusion
+\section{結論}
 本論文では，...
 
 % Acknowledgements
-\chapter*{謝辞}
+\section*{謝辞}
 本研究の遂行にあたって，...
 
 % References
-\chapter*{参考文献}
-\begin{thebibliography}{9}
-    \bibitem{example1} 掛谷 英紀, 学問とは何か: 専門家・メディア・科学技術の倫理, 大学教育出版, 2005.
-    \bibitem{example2} Y. Kiyoki, T. Kitagawa, T. Hayama, ``A metadatabase system for semantic image search by a mathematical model of meaning,'' ACM Sigmod Record, vol. 23, no. 4, pp. 34-41, 1994.
-\end{thebibliography}
+\bibliography{references}
 
 \end{document}
