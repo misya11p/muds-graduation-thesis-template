@@ -50,30 +50,24 @@ Please add the following to Visual-Studio-Code's `settings.json`
 {
   "latex-workshop.latex.tools": [
     {
+      "name": "latexmk (LuaLaTeX)",
       "command": "latexmk",
-      "args": [
-        "-e",
-        "$latex=q/platex %O -synctex=1 -interaction=nonstopmode -file-line-error %S/",
-        "-e",
-        "$bibtex=q/pbibtex %O %B/",
-        "-e",
-        "$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/",
-        "-e",
-        "$makeindex=q/mendex %O -o %D %S/",
-        "-e",
-        "$dvipdf=q/dvipdfmx %O -o %D %S/",
-        "-norc",
-        "-pdfdvi",
-        "%DOC%"
-      ],
-      "name": "latexmk"
+      "args": ["-f", "-gg", "-pv", "-lualatex", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
+    },
+    {
+      "name": "pbibtex",
+      "command": "pbibtex",
+      "args": ["%DOCFILE%"]
     }
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk (tex to PDF)",
-      "tools": ["latexmk"]
-    }
+      "name": "LuaLaTeX",
+      "tools": [
+        "Latexmk (LuaLaTeX)",
+        "pbibtex"
+      ]
+    },
   ],
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.clean.subfolder.enabled": true,
