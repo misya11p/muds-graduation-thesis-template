@@ -1,25 +1,29 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[titlepage,12pt]{ltjsarticle}
 
-% Package declarations
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{hyperref}
-\usepackage{geometry}
-\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{lmodern}
+\usepackage{tocloft}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage[no-math,deluxe,expert,ipa]{luatexja-preset}
 
-\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+\renewcommand{\cfttoctitlefont}{\Large}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\setcounter{tocdepth}{3}
+\cftsetindents{section}{0em}{4em}
+\cftsetindents{subsection}{1em}{4em}
+\cftsetindents{subsubsection}{2em}{4em}
 
-% Customization for headers and footers
-\pagestyle{fancy}
-\fancyhead[L]{}
-\fancyhead[C]{}
-\fancyhead[R]{\thepage}
-\fancyfoot[L]{}
-\fancyfoot[C]{}
-\fancyfoot[R]{}
+\pretocmd{\section}{\clearpage}{}{}
+\titleformat{\section}{\normalfont\Large}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont}{\thesubsubsection}{1em}{}
 
-\title{卒業論文\\ タイトルタイトルタイトル}
+\title{卒業論文 \vskip\baselineskip タイトルタイトルタイトル}
 \author{武蔵野太郎\\ データサイエンス学科\\ 武蔵野大学}
 \date{2025年1月}
 
@@ -29,36 +33,43 @@
 \maketitle
 
 % Abstract
-\chapter*{要旨}
-「ダミーテキスト」近年，プロの作家やライターではない，...
+\section*{要旨}
+武蔵野大学データサイエンス学部データサイエンス学科の卒論のテンプレートについて．
 
 % Table of Contents
+\clearpage
 \tableofcontents
 
-% Chapter 1: Introduction
-\chapter{序論}
+% section 1: Introduction
+\section{序論}\label{sec:introduction}
 このファイルは，武蔵野大学データサイエンス学部データサイエンス学科の卒論のテンプレートです．...
 
-\section{論文の構成}
-論文の構成を以下に述べる．2章では...
+\subsection{論文の構成}\label{subsec:structure}
+論文の構成を以下に述べる．第\ref{sec:figures_tables_equations}章では，図表と数式の配置について述べる．第\ref{sec:hierarchy_style}章では，見出しの階層構造とスタイルの設定について述べる．第\ref{sec:conclusion}章では，結論を述べる．
 
-% Chapter 2: Figures, Tables, and Equations
-\chapter{図と表と数式}
-\section{図表の配置}
+% section 2: Figures, Tables, and Equations
+\section{図と表と数式}\label{sec:figures_tables_equations}
+\subsection{図表の配置}\label{subsec:placement}
 図表は本文中に，出現する場所に配置します．
 
-\section{図表のキャプション}
+\subsection{図表のキャプション}\label{subsec:caption}
 図と表にはキャプションを付けます．キャプションというのは...
 
-\subsection{図とそのキャプションの例}
+\subsubsection{図とそのキャプションの例}\label{subsubsec:figure}
+図\ref{fig:logo}に武蔵野大学のロゴを示す．
+
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{example-image-a}
-    \caption{人間の知識創造のベクトル空間モデルにおける表現}
+    \includegraphics[width=0.6\textwidth]{logo.jpg}
+    \caption{武蔵野大学のロゴ}
+    \label{fig:logo}
 \end{figure}
 
-\subsection{表とそのキャプションの例}
+\subsubsection{表とそのキャプションの例}\label{subsubsec:table}
+表\ref{tab:ml_properties}に各機械学習(ML)の性質を示す．
+
 \begin{table}[htbp]
+    \caption{各MLの性質}
     \centering
     \begin{tabular}{|c|c|c|c|}
         \hline
@@ -67,34 +78,49 @@
         カラーイメージスケール & 180 & 130 & 印象保存 \\ \hline
         音相理論 & 78 & 20 & 印象保存 \\ \hline
     \end{tabular}
-    \caption{各MLの性質}
+    \label{tab:ml_properties}
 \end{table}
 
-\section{数式の参照番号}
-\begin{equation}
+\subsection{数式の参照番号}
+式(\ref{eq:feature})に特徴ベクトルを示す．
+
+\begin{equation}\label{eq:feature}
     S_1 = f(s_i) \quad 1 \leq i \leq n
 \end{equation}
-...
 
-% Chapter 3: Hierarchy of Headings and Style
-\chapter{見出しの階層構造とスタイルの設定}
-\section{見出しのレベル}
-\subsection{これはレベル3です}
-...
+ここで，$S_1$は特徴ベクトル，$f$は特徴関数，$s_i$は特徴の$i$番目の要素を表す．
 
-% Chapter 4: Conclusion
-\chapter{結論}
+% section 3: Hierarchy of Headings and Style
+\section{見出しの階層構造とスタイルの設定}\label{sec:hierarchy_style}
+\subsection{見出しレベル2}\label{subsec:level2}
+\subsubsection{見出しレベル3}\label{subsubsec:level3}
+
+
+% section 4: Conclusion
+\section{結論}\label{sec:conclusion}
 本論文では，...
 
 % Acknowledgements
-\chapter*{謝辞}
+\section*{謝辞}
 本研究の遂行にあたって，...
 
 % References
-\chapter*{参考文献}
-\begin{thebibliography}{9}
-    \bibitem{example1} 掛谷 英紀, 学問とは何か: 専門家・メディア・科学技術の倫理, 大学教育出版, 2005.
-    \bibitem{example2} Y. Kiyoki, T. Kitagawa, T. Hayama, ``A metadatabase system for semantic image search by a mathematical model of meaning,'' ACM Sigmod Record, vol. 23, no. 4, pp. 34-41, 1994.
-\end{thebibliography}
+\bibliographystyle{plain}
+\bibliography{references}
+
+% Appendix
+\appendix
+\section{付録について}\label{app:appendix}
+\texttt{\textbackslash{}appendix}以降の章は付録として扱われる．
+
+\section{参照について}\label{app:ref}
+\texttt{\textbackslash{}label\{ラベル名\}}で任意の章や節にラベルをつけ，\texttt{\textbackslash{}ref\{ラベル名\}}で参照すると，自動で章番号や節番号が挿入される．
+
+\section{BibTeXについて}\label{app:bibtex}
+文献の管理にはBibTeXを使うと良い．任意のBibTeXファイル（`ファイル名.bib`）に文献情報を書き，\texttt{\textbackslash{}cite\{キー\}}で文献を引用する．次に例を示す:
+
+AIME\cite{AIME}は機械学習モデルを解釈するための新しい手法である．Transformer\cite{transformer}は自然言語処理のために提案されたモデルである．
+
+参考文献を表示させる位置に\texttt{\textbackslash{}bibliography\{ファイル名\}}を書くことで，参考文献リストが自動で生成される．本テンプレートにおけるサンプルのBibTeXファイルは\texttt{references.bib}である．BiBTeX形式の文献情報はGoogle Scholarなどから簡単に取得できる．
 
 \end{document}
